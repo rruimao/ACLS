@@ -44,7 +44,7 @@ Y<-X %*% beta_true+eps
 ```
 
 ### Randomized gradient descent
-We randomly generate 10 initials $\beta^0 \sim \text{Unif}(\mathbb{B}_2(\tau))$, where $\text{Unif}(\mathbb{B}_2(\tau))$ is a uniform distribution on the $\ell_2$-ball $\mathbb{B}_2(\tau)=\{x: \|x\|_2 \leq \tau \}$.
+We randomly generate 10 initials $\beta^0 \sim \text{Unif}(\mathbb{B}_2(\tau))$, where $\text{Unif}(\mathbb{B}_2(\tau))$ is a uniform distribution on the $\ell_2$-ball $\mathbb{B}_2(\tau)=\{x: \|x\|_2 \leq \tau \}$. This method finds the initial that provides the smallest adaptive resistant loss.
 
 ``` R
 tau<-sqrt(n)/log(log(n))
@@ -53,7 +53,7 @@ beta.rgd<-RGD(X,Y,tau,iter)
 ```
 
 ### Gradient descent method with initials obtained from CPLEX
-
+We first sample $30\%$ data and use CPLEX to find the optimal solution as initial, then we apply gradient descent method with this initial.
 ``` R
 n_ratio<-0.3
 Sample<-picksamples(X,Y,n_ratio)
