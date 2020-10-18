@@ -33,15 +33,27 @@ We present examples of random generated $\{(x_i, y_i) \}_{i=1}^n$ with $n=50$, $
 # n: sample size; d: dimensionality
 n<-50
 d<-5
-tau<-sqrt(n)/log(log(n))
 a=matrix(data = rnorm(1, 0, 1), nrow = n, ncol = d)
 x_0<-matrix(1L,nrow=n,ncol=1)
 X=cbind(x_0,a)
 beta_true<-c(0,3,4,1,2,0)
 eps<-matrix(rnorm(n));
 #Genarate response Y using true coefficient beta_true
-Y_1<-X %*% beta_true+eps
+Y<-X %*% beta_true+eps
+```
+
+### Randomized gradient descent
+
+``` R
+tau<-sqrt(n)/log(log(n))
 iter=10
 beta<-RGD(X,Y,tau,iter)
+```
+
+### Gradient descent method with initials obtained from CPLEX.
+
+``` R
+
+
 ```
 
