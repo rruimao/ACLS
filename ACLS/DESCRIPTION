@@ -1,0 +1,10 @@
+Package: ACLS
+Type: Package
+Title: Adaptive Capped Least Squares
+Version: 0.1.0
+Author: Rui Mao
+Maintainer: Rui Mao <rrui.mao@mail.utoronto.ca>
+Description: The adaptive capped least squares method minimizes the sum of the adaptive capped least squares loss using randomized gradient descent algorithm.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
