@@ -19,3 +19,13 @@ Install **Rcplex** if want to use CPLEX to obtain the intial or the solution to 
 See the **INSTALL** file from https://cran.r-project.org/web/packages/Rcplex/index.html.
 
 
+## Functions
+There are three functions in this package:
+
+**GD**: Gradient descent method with user-defined initial.
+
+**RGD**: Randomized gradient descent method.
+
+**cplexcoef**: Get the coefficients for the CPLEX.
+
+
