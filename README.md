@@ -53,7 +53,7 @@ beta.rgd<-RGD(X,Y,tau,iter)
 ```
 
 ### Gradient descent method with initials obtained from CPLEX
-We first sample $30\%$ data and use CPLEX to find the optimal solution as initial, then we apply gradient descent method with this initial.
+We first sample $30\%$ data and use CPLEX to find the optimal solution as the initial, then we apply gradient descent method with this initial.
 ``` R
 n_ratio<-0.3
 Sample<-picksamples(X,Y,n_ratio)
