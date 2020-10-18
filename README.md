@@ -27,5 +27,5 @@ There are three functions in this package:
 - **cplexcoef**: Get the coefficients for the problem solved by CPLEX.
 
 ## Examples
-
+We present examples of random generated $\{(x_i, y_i) \}_{i=1}^n$ with $n=50$, $d=5$.
 
