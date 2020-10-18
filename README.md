@@ -16,6 +16,6 @@ library(ACLS)
 
 Install **Rcplex** if want to use CPLEX to obtain the intial or the solution to the problem:
 
-See the INSTALL file from https://cran.r-project.org/web/packages/Rcplex/index.html
+See the **INSTALL** file from https://cran.r-project.org/web/packages/Rcplex/index.html.
 
 
