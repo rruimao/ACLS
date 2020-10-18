@@ -44,6 +44,7 @@ Y<-X %*% beta_true+eps
 ```
 
 ### Randomized gradient descent
+We randomly generate 10 initials $\beta^0\sim \text{Unif}(\mathbb_2(\tau))$, where $\text{Unif}(\mathbb_2(\tau))$ is a uniform distribution on the $\ell_2$-ball $\mathbb_2(\tau)=\{x: \|x\|_2\leq \tau\}$.
 
 ``` R
 tau<-sqrt(n)/log(log(n))
@@ -51,7 +52,7 @@ iter<-10
 beta.rgd<-RGD(X,Y,tau,iter)
 ```
 
-### Gradient descent method with initials obtained from CPLEX.
+### Gradient descent method with initials obtained from CPLEX
 
 ``` R
 n_ratio<-0.3
