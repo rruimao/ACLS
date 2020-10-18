@@ -22,8 +22,8 @@ See the **INSTALL** file from https://cran.r-project.org/web/packages/Rcplex/ind
 ## Functions
 There are three functions in this package:
 
--**GD**: Gradient descent method with user-defined initial.
--**RGD**: Randomized gradient descent method.
--**cplexcoef**: Get the coefficients for the CPLEX.
+- **GD**: Gradient descent method with user-defined initial.
+- **RGD**: Randomized gradient descent method.
+- **cplexcoef**: Get the coefficients for the CPLEX.
 
 
