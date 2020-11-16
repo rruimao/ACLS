@@ -57,10 +57,11 @@ We first sample $30\%$ data and use CPLEX to find the optimal solution as the in
 ``` R
 library("Rcplex")
 n_ratio<-0.3
+n_sp<-round(n*n_ratio)
 Sample<-picksamples(X,Y,n_ratio)
 Coef_sp<-cplexcoef(Sample$X_sp,Sample$Y_sp,tau)
 ans_sp<-Rcplex(Coef_sp$f,Coef_sp$A,Coef_sp$b,Coef_sp$Q,Coef_sp$lb,Coef_sp$ub,vtype=Coef_sp$vtype)
-beta_0<-ans_sp$xopt[(3*n+1):(3*n+d+1)]
+beta_0<-ans_sp$xopt[(3*n_sp+1):(3*n_sp+d+1)]
 beta.gdc<-GD(beta_0,tau,X,Y)
 ```
 
