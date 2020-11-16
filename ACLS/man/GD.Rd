@@ -17,27 +17,15 @@ The steepest gradient descent approximation method find the approximation of the
 }
 \examples{
 n<-50
-p<-5
-tau<-sqrt(n)/log(log(n))
-mu<-matrix(0L,nrow=p,ncol=1)
-#covarinace matrix
+d<-5
+a=matrix(data = rnorm(1, 0, 1), nrow = n, ncol = d)
 x_0<-matrix(1L,nrow=n,ncol=1)
-rho<-0.5
-Sig<-matrix(0L,nrow=p,ncol=p)
-for (i in 1:p)
-{
-    for (j in 1:p){
-    Sig[i,j]<-rho^abs(i-j)
-}
-  }
-R<-mvrnorm(n, mu, Sig, tol = 1e-06, empirical = FALSE)
-X_<-cbind(x_0,R)
-X<-data.frame(X_)
-colnames(X) <- c("Intercept", paste("X", 1:p, sep = ""))
+X=cbind(x_0,a)
 beta_true<-c(0,3,4,1,2,0)
 eps<-matrix(rnorm(n));
-Y<-X_ %*% beta_true+eps
-Y<-data.frame(Y)
-beta_0<-c(0,0,0,0,0,0)
+#Genarate response Y using true coefficient beta_true
+Y<-X %*% beta_true+eps
+tau<-sqrt(n)/log(log(n))
+beta_0<-c(0,rnorm(5))
 beta<-GD(beta_0,tau,X,Y)
 }
