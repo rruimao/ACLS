@@ -10,7 +10,7 @@ Install **ACLS** from GitHub:
 ``` R
 install.packages("devtools")
 library(devtools)
-devtools::install_github("rruimao/ACLS")
+devtools::install_github("rruimao/ACLS/ACLS")
 library(ACLS)
 ``` 
 
