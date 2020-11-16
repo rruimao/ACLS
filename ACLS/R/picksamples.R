@@ -3,7 +3,7 @@ picksamples<-function(X,Y,n_ratio){
   p<-ncol(X)-1
   X.matrix<-data.matrix(X, rownames.force = NA)
   Y.matrix<-data.matrix(Y, rownames.force = NA)
-  n_sp<-n*n_ratio
+  n_sp<-round(n*n_ratio)
   X_sp<-matrix(0L,nrow=round(n_sp),ncol=p+1)
   Y_sp<-matrix(0L,nrow=round(n_sp),ncol=1)
   index<-matrix(sample(1:n,round(n_sp)))
