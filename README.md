@@ -138,4 +138,4 @@ We use the same code in the first example replacing X, Y with X_new, Y_2 respect
 
 |    |OLS | AHR |  LTS | ACLS | ACLS-h | ACLS-C |
 | :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
-| MSE   | 0.6827     | 0.3603    |0.4750|0.1000|0.10000|0.1002|
+| MSE   | 0.6827     | 0.3603    |0.0818|0.0163|0.0163|0.0163|
