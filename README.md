@@ -97,5 +97,9 @@ We summerize the MSEs of all methods in the following table.
 
 |    |OLS | AHR |  LTS | ACLS | ACLS-h | ACLS-C |
 | :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
-| MSE   | 0.6827     | 0.3603    |0.4750|0.1000|0.10000|0.1002
+| MSE   | 0.6827     | 0.3603    |0.4750|0.1000|0.10000|0.1002|
+
+### Second example: random generated data with $x$-outliers and $y$-outliers
+we generate contaminated random errors $\epsilon_i$ from a mixture of normal distribution $0.9 \mathcal{N}(0,1)+0.1 \mathcal{N}(10,1)$ and $x_i$'s are independently and identically distributed (i.i.d.) as $\mathcal{N}(0,I_d)$ where $I_d$ is an identity matrix (using mvrnorm function from MASS package). We then add a random perturbation vector  $z_i \sim \mathcal{N}(10\times 1_{d-1},I_{d-1} )$
+	to each covariate $x_i$ in the contaminated samples. We set $\beta^* =(0,3,4,1,2,0)^{\text{T}}$ to generate $y_i$.
 
