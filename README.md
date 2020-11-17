@@ -80,13 +80,15 @@ beta.gdc<-GD(beta_0,tau,X,Y)
 ### Other methods
 ``` R
 install.packages("robustbase")
+library("robustbase")
 beta.LSE<-solve(t(X)%*%X)%*%t(X)%*%Y
-beta.Huber<-huberM(c(Y,X), tau)
-Z.LTS<-ltsReg(X,Y,intercept=TRUE,adjust=TRUE)
+Z.Huber<-rlm(X, Y, psi = psi.huber, scale.est = c("MAD", "Huber", "proposal 2"), k2 = 1.345)
+beta.Huber<-Z.Huber$coefficient
+Z.LTS<-ltsReg(a,Y,intercept=TRUE,adjust=TRUE)
 beta.LTS<-Z.LTS$coefficients
-Coef<-cplexcoef(Sample$X,Sample$Y,tau)
+Coef<-cplexcoef(X,Y,tau)
 ans<-Rcplex(Coef$f,Coef$A,Coef$b,Coef$Q,Coef$lb,Coef$ub,vtype=Coef$vtype)
-beta_cplex<-ans_sp$xopt[(3*n_sp+1):(3*n_sp+d+1)]
+beta.cplex<-ans$xopt[(3*n+1):(3*n+d+1)]
 ```
 
 We summerize the MSEs of all methods in the following table.
