@@ -30,10 +30,7 @@ There are four functions in this package:
 ## Examples
 We present two examples: random generated data with $y$-outliers and random generated data with $x$-outliers and $y$-outliers. 
 
-| Left-aligned | Center-aligned | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
+
 
 ### First example: random generated data with $y$-outliers
 we generate contaminated random errors $\epsilon_i$ from a mixture of normal distribution $0.9 \mathcal{N}(0,1)+0.1 \mathcal{N}(10,1)$ and $x_i$'s are independently and identically distributed (i.i.d.) as $\mathcal{N}(0,I_d)$ where $I_d$ is an identity matrix (using mvrnorm function from MASS package). We set $\beta^* =(0,3,4,1,2,0)^{\text{T}}$ to generate $y_i$.
@@ -57,7 +54,7 @@ eps<-matrix(rnorm(n,mean=mus[components],sd=sds[components]))
 Y<-X %*% beta_true+eps
 ```
 
-We first apply our proposed methods, randomized gradient descent and gradient descent with intials obtained from CPLEX, to the data. We then compare mean square errors (MSEs) of these two methods with MSEs of ordinary least squares method, Huber method and least trimmed squares method. Results obtained from the CPLEX on the whole dataset are treated as benchmark. 
+We first apply our proposed methods, randomized gradient descent (denoted by ACLS) and gradient descent with intials obtained from CPLEX (denoted by ACLS-h), to the data. We then compare mean square errors (MSEs) of these two methods with MSEs of ordinary least squares method (OLS), Huber method with adaptive resistant parameter (denoted by AHR) and least trimmed squares method (LTS). Results obtained from the CPLEX on the whole dataset (denoted by ACLS-C) are treated as benchmark. 
 
 
 ### Randomized gradient descent
@@ -86,7 +83,7 @@ beta.gdc<-GD(beta_0,tau,X,Y)
 ``` R
 install.packages("robustbase")
 library("robustbase")
-beta.LSE<-solve(t(X)%*%X)%*%t(X)%*%Y
+beta.OLS<-solve(t(X)%*%X)%*%t(X)%*%Y
 Z.Huber<-rlm(X, Y, psi = psi.huber, scale.est = c("MAD", "Huber", "proposal 2"), k2 = 1.345)
 beta.Huber<-Z.Huber$coefficient
 Z.LTS<-ltsReg(a,Y,intercept=TRUE,adjust=TRUE)
@@ -97,4 +94,8 @@ beta.cplex<-ans$xopt[(3*n+1):(3*n+d+1)]
 ```
 
 We summerize the MSEs of all methods in the following table.
+
+|    |OLS | AHR |  LTS | ACLS | ACLS-h | ACLS-C |
+| :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
+| MSE   | 0.6827     | 0.3603    |0.4750|0.1000|0.10000|0.1002
 
