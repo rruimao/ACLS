@@ -28,8 +28,9 @@ There are four functions in this package:
 - **cplexcoef**: Get the coefficients for the problem solved by CPLEX.
 
 ## Examples
-We present examples of random generated $\{(x_i, y_i) \}_{i=1}^n$ with $n=50$, $d=5$ and $\beta^* =(0,3,4,1,2,0)^{\text{T}}$.
+We present two examples: random generated data with y-outliers and random generated data with x-outliers and y-outliers. 
 
+### First example: random generated data with y-outliers
 ``` R
 # n: sample size; d: dimensionality
 n<-50
