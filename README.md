@@ -28,18 +28,24 @@ There are four functions in this package:
 - **cplexcoef**: Get the coefficients for the problem solved by CPLEX.
 
 ## Examples
-We present two examples: random generated data with y-outliers and random generated data with x-outliers and y-outliers. 
+We present two examples: random generated data with $y$-outliers and random generated data with $x$-outliers and $y$-outliers. 
 
-### First example: random generated data with y-outliers
+### First example: random generated data with $y$-outliers
+we generate contaminated random errors $\epsilon_i$ from a mixture of normal distribution $0.9 \mathcal{N}(0,1)+0.1 \mathcal{N}(10,1) and $x_i$'s are independently and identically distributed (i.i.d.) as $\mathcal{N}(0,\Sigma)$ with $\Sigma$ chosen as an identity matrix. We set $\beta^*= =(0,3,4,1,2,0)^{\text{T}}$ to generate $y_i$.
 ``` R
 # n: sample size; d: dimensionality
 n<-50
 d<-5
-a<-matrix(data = rnorm(1, 0, 1), nrow = n, ncol = d)
+mu<-mu<-matrix(0L,nrow=d,ncol=1);
+Sig<-diag(d);
+a<-mvrnorm(n, mu, Sig, tol = 1e-06, empirical = FALSE);
 x_0<-matrix(1L,nrow=n,ncol=1)
 X=cbind(x_0,a)
 beta_true<-c(0,3,4,1,2,0)
-eps<-matrix(rnorm(n));
+components<-sample(1:2,prob=c(1-eps_ratio,0.1),size=n,replace=TRUE)
+mus<-c(0,10)
+sds<-c(1,1)
+eps<-matrix(rnorm(n,mean=mus[components],sd=sds[components]))
 #Genarate response Y using true coefficient beta_true
 Y<-X %*% beta_true+eps
 ```
