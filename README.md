@@ -31,7 +31,7 @@ There are four functions in this package:
 We present two examples: random generated data with $y$-outliers and random generated data with $x$-outliers and $y$-outliers. 
 
 ### First example: random generated data with $y$-outliers
-we generate contaminated random errors $\epsilon_i$ from a mixture of normal distribution $0.9 \mathcal{N}(0,1)+0.1 \mathcal{N}(10,1) and $x_i$'s are independently and identically distributed (i.i.d.) as $\mathcal{N}(0,\Sigma)$ with $\Sigma$ chosen as an identity matrix. We set $\beta^*= =(0,3,4,1,2,0)^{\text{T}}$ to generate $y_i$.
+we generate contaminated random errors $\epsilon_i$ from a mixture of normal distribution $0.9 \mathcal{N}(0,1)+0.1 \mathcal{N}(10,1)$ and $x_i$'s are independently and identically distributed (i.i.d.) as $\mathcal{N}(0,\Sigma)$ with $\Sigma$ chosen as an identity matrix. We set $\beta^*= =(0,3,4,1,2,0)^{\text{T}}$ to generate $y_i$.
 ``` R
 # n: sample size; d: dimensionality
 n<-50
