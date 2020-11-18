@@ -100,4 +100,4 @@ We use the same code in the first example replacing X, Y with X_new, Y_2 respect
 
 |    |OLS | AHR |  LTS | ACLS | ACLS-h | ACLS-C |
 | :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
-| MSE   | 16    | 16    |1|1|1|1|
+| MSE   | 0.776   | 0.268    |0.169|0.169|0.169|0.169|
