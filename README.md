@@ -28,7 +28,7 @@ There are four functions in this package:
 - **cplexcoef**: Get the coefficients for the problem solved by CPLEX.
 
 ## Examples
-We present two examples: random generated data with y-outliers and random generated data with x-outliers and x-outliers. 
+We present two examples: random generated data with y-outliers and random generated data with x-outliers and y-outliers. 
 
 
 
