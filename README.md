@@ -106,5 +106,7 @@ We use the same code in the first example replacing X, Y with X_new, Y_2 respect
 
 ## Reference
 Huber, P. J. (1973). Robust regression: asymptotics, conjectures and Monte Carlo. The Annals of Statistics 1 799-821.
+
+
 Rousseeuw, P. J. and Driessen, K. V. (1999). A fast algorithm for the minimum covariance determinant estimator. Technometrics 41 212-223.
 
