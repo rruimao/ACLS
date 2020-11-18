@@ -33,7 +33,7 @@ We present two examples: random generated data with y-outliers and random genera
 
 
 ### First example: random generated data with y-outliers
-we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9 N(0,1)+0.1N(10,1)$ and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma=0.5<sup>|j-k|</sup>. We set &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> to generate y<sub>i</sub>. This random genrated data can be downloaded from example file.
+we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9 N(0,1)+0.1N(10,1) and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma;=0.5<sup>|j-k|</sup>. We set &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> to generate y<sub>i</sub>. This random genrated data can be downloaded from example file.
 
 ```R
 load
@@ -52,7 +52,7 @@ beta.rgd<-RGD(X,Y,tau,iter)
 ```
 
 ### Gradient descent method with initials obtained from CPLEX 
-We first sample $30\%$ data and use CPLEX to find the optimal solution as the initial, then we apply gradient descent method with this initial.
+We first sample 30% data and use CPLEX to find the optimal solution as the initial, then we apply gradient descent method with this initial.
 ``` R
 library("Rcplex")
 n_ratio<-0.3
@@ -89,35 +89,12 @@ We summerize the MSEs of all methods in the following table.
 | MSE   | 2.8349     | 2.8349  |0.2096|0.2096|0.2096|0.2096|
 
 ### Second example: random generated data with $x$-outliers and $y$-outliers
-we generate contaminated random errors $\epsilon_i$ from a mixture of normal distribution $0.9 \mathcal{N}(0,1)+0.1 \mathcal{N}(10,1)$ and $x_i$'s are independently and identically distributed (i.i.d.) as $\mathcal{N}(0,I_d)$ where $I_d$ is an identity matrix (using mvrnorm function from MASS package). We then add a random perturbation vector  $z_i \sim \mathcal{N}(10\times 1_{d-1},I_{d-1} )$
-	to each covariate $x_i$ in the contaminated samples. We set $\beta^* =(0,3,4,1,2,0)^{\text{T}}$ and use uncontaminated $x_i$ to generate $y_i$.
+we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9 N(0,1)+0.1N(10,1)$ and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma;=0.5<sup>|j-k|</sup>. We then add a random perturbation vector  z<sub>i</sub> ~ N(10 &times; 1<sub>d-1</sub>,I<sub>d-1</sub>) to each covariate x<sub>i</sub> in the contaminated samples. We also use &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> and use uncontaminated x<sub>i</sub> to generate y<sub>i</sub>.
 	
 ``` R
-# n: sample size; d: dimensionality
-n<-50
-d<-5
-mu<-matrix(0L,nrow=d,ncol=1)
-Sig<-diag(d)
-install.packages("MASS")
-library("MASS")
-a<-mvrnorm(n, mu, Sig, tol = 1e-06, empirical = FALSE)
-x_0<-matrix(1L,nrow=n,ncol=1)
-X=cbind(x_0,a)
-beta_true<-c(0,3,4,1,2,0)
-X_index<-matrix(sample(1:n,round(0.1*n)))
-R_new<-matrix(0L,nrow=n,ncol=d)
-eps_2<-matrix(rnorm(n))
-  for (i in 1:dim(X_index)[1])
-  {
-    j<-X_index[i]
-    R_new[j,]<-rnorm(d, mean=10, sd=1)
-    eps_2[j]<-rnorm(1,mean=10,sd=1)
-  }
-  R_new<-a+R_new
-  X_new<-cbind(x_0,R_new)
-#Genarate response Y using true coefficient beta_true
-Y_2<-X %*% beta_true+eps_2
+load
 ```	
+
 
 We use the same code in the first example replacing X, Y with X_new, Y_2 respectively to get estimators for all methods. We also collect the MSEs in the following table.
 
