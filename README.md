@@ -73,9 +73,9 @@ install.packages("robustbase")
 library("robustbase")
 install.packages("robustreg")
 library("robustreg")
-Z.OLS<-lm(Y~X1+X2+X3+X4+X5,data=ex_2)
+Z.OLS<-lm(Y~X1+X2+X3+X4+X5,data=ex_1)
 beta.OLS<-Z.OLS$coefficients
-Z.Huber<-robustRegH(Y~X1+X2+X3+X4+X5,data=ex_2,tune=tau)
+Z.Huber<-robustRegH(Y~X1+X2+X3+X4+X5,data=ex_1,tune=tau)
 beta.Huber<-Z.Huber$coefficients
 Z.LTS<-ltsReg(X[,-1],Y,intercept=TRUE,adjust=TRUE)
 beta.LTS<-Z.LTS$coefficients
