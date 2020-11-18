@@ -91,14 +91,16 @@ We summerize the MSEs of all methods in the following table.
 | MSE   | 4.3016    | 4.3016 |0.5026|0.0626|0.0625|0.0636|
 
 ### Second example: random generated data with $x$-outliers and $y$-outliers
-we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9 N(0,1)+0.1N(10,1)$ and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma;=0.5<sup>|j-k|</sup>. We then add a random perturbation vector  z<sub>i</sub> ~ N(10 &times; 1<sub>d-1</sub>,I<sub>d-1</sub>) to each covariate x<sub>i</sub> in the contaminated samples. We also use &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> and use uncontaminated x<sub>i</sub> to generate y<sub>i</sub>.
+we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9 N(0,1)+0.1N(10,1)$ and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma;=0.5<sup>|j-k|</sup>. We then add a random perturbation vector  z<sub>i</sub> ~ N(10 &times; 1<sub>d-1</sub>,I<sub>d-1</sub>) to each covariate x<sub>i</sub> in the contaminated samples. We also use &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> and use uncontaminated x<sub>i</sub> to generate y<sub>i</sub>. We provide one example of this type, "ex_2.Rdata", and it can be downloaded from example file.
 	
 ``` R
-load
+load("ex_2.Rdata")
+Y<-ex_2$Y
+X<-ex_2[,!(names(ex_1) %in% "Y")]
 ```	
 
 
-We use the same code in the first example replacing X, Y with X_new, Y_2 respectively to get estimators for all methods. We also collect the MSEs in the following table.
+We use the same code in the first example with the new data to get estimators for all methods. We also collect the MSEs in the following table. 
 
 |    |OLS | AHR |  LTS | ACLS | ACLS-h | ACLS-C |
 | :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
