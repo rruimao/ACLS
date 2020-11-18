@@ -33,13 +33,15 @@ We present two examples: random generated data with y-outliers and random genera
 
 
 ### First example: random generated data with y-outliers
-we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9 N(0,1)+0.1N(10,1) and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma;=0.5<sup>|j-k|</sup>. We set &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> to generate y<sub>i</sub>. This random genrated data can be downloaded from example file.
+we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9 N(0,1)+0.1N(10,1) and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma;=0.5<sup>|j-k|</sup>. We set &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> to generate y<sub>i</sub>. We provide one example of this type, "ex_1.Rdata", and it can be downloaded from example file.
 
 ```R
-load
+load("ex_1.Rdata")
+Y<-ex_1$Y
+X<-ex_1[,!(names(ex_1) %in% "Y")]
 ```
 
-We first apply our proposed methods, randomized gradient descent (denoted by ACLS) and gradient descent with intials obtained from CPLEX (denoted by ACLS-h), to the data. We then compare mean square errors (MSEs) of these two methods with MSEs of ordinary least squares method (OLS), Huber method with adaptive resistant parameter (denoted by AHR) and least trimmed squares method (LTS). Results obtained from the CPLEX on the whole dataset (denoted by ACLS-C) are treated as benchmark. 
+We first apply our proposed methods, randomized gradient descent (denoted by ACLS) and gradient descent with intials obtained from CPLEX (denoted by ACLS-h), to the data. 
 
 
 ### Randomized gradient descent
@@ -65,15 +67,15 @@ beta.gdc<-GD(beta_0,tau,X,Y)
 ```
 
 ### Other methods
+We then compare mean square errors (MSEs), defined as || &beta;#770;-&beta<sup>*</sup>||<sub>2</sub><sup>2</sup> of these two methods with MSEs of ordinary least squares method (OLS), Huber method with adaptive resistant parameter (denoted by AHR) and least trimmed squares method (LTS). Results obtained from the CPLEX on the whole dataset (denoted by ACLS-C) are treated as benchmark. 
 ``` R
 install.packages("robustbase")
 library("robustbase")
 install.packages("robustreg")
 library("robustreg")
-beta.OLS<-solve(t(X)%*%X)%*%t(X)%*%Y
-Z<-data.frame(X,Y)
-colnames(Z)<-c("X1","X2","X3","X4","X5","X6","Y")
-Z.Huber<-robustRegH(Y~X2+X3+X4+X5+X6,data=Z,tune=tau)
+Z.OLS<-lm(Y~X1+X2+X3+X4+X5,data=ex_2)
+beta.OLS<-Z.OLS$coefficients
+Z.Huber<-robustRegH(Y~X1+X2+X3+X4+X5,data=ex_2,tune=tau)
 beta.Huber<-Z.Huber$coefficients
 Z.LTS<-ltsReg(X[,-1],Y,intercept=TRUE,adjust=TRUE)
 beta.LTS<-Z.LTS$coefficients
