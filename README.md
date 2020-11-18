@@ -67,7 +67,7 @@ beta.gdc<-GD(beta_0,tau,X,Y)
 ```
 
 ### Other methods
-We then compare mean square errors (MSEs), defined as || &betacirc;-&beta;<sup>*</sup>||<sub>2</sub><sup>2</sup> of these two methods with MSEs of ordinary least squares method (OLS), Huber method with adaptive resistant parameter (denoted by AHR) and least trimmed squares method (LTS). Results obtained from the CPLEX on the whole dataset (denoted by ACLS-C) are treated as benchmark. 
+We then compare mean square errors (MSEs), defined as || &beta;&hat;-&beta;<sup>*</sup>||_2^2 of these two methods with MSEs of ordinary least squares method (OLS), Huber method with adaptive resistant parameter (denoted by AHR) and least trimmed squares method (LTS). Results obtained from the CPLEX on the whole dataset (denoted by ACLS-C) are treated as benchmark. 
 ``` R
 install.packages("robustbase")
 library("robustbase")
