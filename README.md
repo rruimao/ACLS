@@ -84,7 +84,7 @@ ans<-Rcplex(Coef$f,Coef$A,Coef$b,Coef$Q,Coef$lb,Coef$ub,vtype=Coef$vtype)
 beta.cplex<-ans$xopt[(3*n+1):(3*n+d+1)]
 ```
 
-We summerize the MSEs of all methods in the following table.
+We summarize the MSEs of all methods in the following table.
 
 |    |OLS | AHR |  LTS | ACLS | ACLS-h | ACLS-C |
 | :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
