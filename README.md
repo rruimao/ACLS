@@ -67,7 +67,7 @@ beta.gdc<-GD(beta_0,tau,X,Y)
 ```
 
 ### Other methods
-We then compare mean square errors (MSEs), defined as || &beta;&circ;-&beta;<sup>*</sup>||<sup>2</sup>of these two methods with MSEs of ordinary least squares method (OLS), Huber method with adaptive resistant parameter (denoted by AHR) and least trimmed squares method (LTS). Results obtained from the CPLEX on the whole dataset (denoted by ACLS-C) are treated as benchmark. 
+We then compare mean square errors (MSEs), defined as || &beta;&circ;-&beta;<sup>*</sup>||<sup>2</sup>, of these two methods with MSEs of ordinary least squares method (OLS), Huber method with adaptive resistant parameter (denoted by AHR) and least trimmed squares method (LTS). Results obtained from the CPLEX on the whole dataset (denoted by ACLS-C) are treated as benchmark. 
 ``` R
 install.packages("robustbase")
 library("robustbase")
@@ -103,3 +103,8 @@ We use the same code in the first example replacing X, Y with X_new, Y_2 respect
 |    |OLS | AHR |  LTS | ACLS | ACLS-h | ACLS-C |
 | :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
 | MSE   | 18.6446   | 18.6446    |0.7033|0.3558|0.3555|0.3569|
+
+## Reference
+Huber, P. J. (1973). Robust regression: asymptotics, conjectures and Monte Carlo. The Annals of Statistics 1 799-821.
+Rousseeuw, P. J. and Driessen, K. V. (1999). A fast algorithm for the minimum covariance determinant estimator. Technometrics 41 212-223.
+
