@@ -3,7 +3,7 @@ Adaptive Capped Least Squares
 ## Description
 This package includes two methods applied to minimize the adaptive capped least squares loss: randomized gradient descent method and gradient descent method with initials obtained from CPLEX.
 
-Suppose we observe data vectors  (x<sub>i</sub>,y<sub>i</sub>) that follow a linear model y<sub>i</sub>=x<sub>i</sub><sup>T</sup>&beta;<sup>*</sup>+&epsilon;<sub>i</sub> $y_i=x_i^{\text{T}} \beta^* +\epsilon_i, \ \ i=1,\ldots, n, $, where $y_i$ is a univariate response,  $x_i$ is a $d$-dimensional predictor, $\beta^*$ denotes the vector of regression coefficients, and $\epsilon_i$ is a random error. We propose the adpative resistant loss, $\ell(x)=x^2/2$ if $|x| \leq \tau$; $\tau^2/2,$ if $|x|>\tau$, where $\tau=\tau(n)>0$ is referred to as the resistance parameter. The proposed methods are applied to find $\beta$ that minimizes $\mathcal{L}(\beta)= n^{-1} \sum \ell(y_i-x _i^\text{T} \beta )$.
+Suppose we observe data vectors  (x<sub>i</sub>,y<sub>i</sub>)<sub>i=1</sub> <sup>n</sup> that follow a linear model y<sub>i</sub>=x<sub>i</sub><sup>T</sup>&beta;<sup>*</sup>+&epsilon;<sub>i</sub>, i=1,...,n, where y<sub>i</sub> is a univariate response,  x<sub>i</sub> is a $d$-dimensional predictor, &beta;<sup>*</sup> denotes the vector of regression coefficients, and &epsilon;<sub>i</sub> is a random error. We propose the adpative cappled least squares loss, l(x)=x<sup>2</sup>/2 if $|x| \leq \tau$; $\tau^2/2,$ if $|x|>\tau$, where $\tau=\tau(n)>0$ is referred to as the resistance parameter. The proposed methods are applied to find $\beta$ that minimizes $\mathcal{L}(\beta)= n^{-1} \sum \ell(y_i-x _i^\text{T} \beta )$.
 
 ## Installation
 Install **ACLS** from GitHub:
