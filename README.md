@@ -90,7 +90,7 @@ We summarize the MSEs of all methods in the following table.
 | :---         |     :---:      |          ---: |          ---: |          ---: |          ---: |          ---: |
 | MSE   | 4.3016    | 4.3016 |0.5026|0.0626|0.0625|0.0636|
 
-### Second example: random generated data with $x$-outliers and $y$-outliers
+### Second example: random generated data with x-outliers and y-outliers
 we generate contaminated random errors &epsilon;<sub>i</sub> from a mixture of normal distribution 0.9N(0,1)+0.1N(10,1) and x<sub>i</sub>'s are independently and identically distributed (i.i.d.) from N(0,&Sigma;) where &Sigma;=0.5<sup>|j-k|</sup>. We then add a random perturbation vector  z<sub>i</sub> ~ N(10 &times; 1<sub>d-1</sub>,I<sub>d-1</sub>) to each covariate x<sub>i</sub> in the contaminated samples. We also use &beta;<sup>*</sup> =(0,3,4,1,2,0)<sup>T</sup> and use uncontaminated x<sub>i</sub> to generate y<sub>i</sub>. We provide one example of this type, "ex_2.Rdata", and it can be downloaded from example file.
 	
 ``` R
@@ -111,7 +111,7 @@ Huber, P. J. (1973). Robust regression: asymptotics, conjectures and Monte Carlo
 
 Rousseeuw, P. J. and Driessen, K. V. (1999). A fast algorithm for the minimum covariance determinant estimator. *Technometrics* **41** 212-223. [Paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.45.5870&rep=rep1&type=pdf)
 
-Rousseeuw, P. J. (1984). Least median of squares regression. *Journal of the American Statistical Association* **79** 871-880.
+Rousseeuw, P. J. (1984). Least median of squares regression. *Journal of the American Statistical Association* **79** 871-880. [Paper](http://web.ipac.caltech.edu/staff/fmasci/home/astro_refs/LeastMedianOfSquares.pdf)
 
-Sun, Q., Zhou, W.-X. and Fan, J. (2020). Adaptive Huber regression. *Journal of the American Statistical Association* **115** 254-265.
+Sun, Q., Zhou, W.-X. and Fan, J. (2020). Adaptive Huber regression. *Journal of the American Statistical Association* **115** 254-265. [Paper] (https://arxiv.org/pdf/1706.06991.pdf)
 
