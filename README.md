@@ -111,3 +111,7 @@ Huber, P. J. (1973). Robust regression: asymptotics, conjectures and Monte Carlo
 
 Rousseeuw, P. J. and Driessen, K. V. (1999). A fast algorithm for the minimum covariance determinant estimator. Technometrics 41 212-223.
 
+Rousseeuw, P. J. (1984). Least median of squares regression. Journal of the American Statistical Association 79 871-880.
+
+Sun, Q., Zhou, W.-X. and Fan, J. (2020). Adaptive Huber regression. Journal of the American Statistical Association 115 254-265.
+
