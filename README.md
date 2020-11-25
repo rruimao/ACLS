@@ -113,5 +113,5 @@ Rousseeuw, P. J. and Driessen, K. V. (1999). A fast algorithm for the minimum co
 
 Rousseeuw, P. J. (1984). Least median of squares regression. *Journal of the American Statistical Association* **79** 871-880. [Paper](http://web.ipac.caltech.edu/staff/fmasci/home/astro_refs/LeastMedianOfSquares.pdf)
 
-Sun, Q., Zhou, W.-X. and Fan, J. (2020). Adaptive Huber regression. *Journal of the American Statistical Association* **115** 254-265. [Paper] (https://arxiv.org/pdf/1706.06991.pdf)
+Sun, Q., Zhou, W.-X. and Fan, J. (2020). Adaptive Huber regression. *Journal of the American Statistical Association* **115** 254-265. [Paper](https://arxiv.org/pdf/1706.06991.pdf)
 
