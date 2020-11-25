@@ -107,11 +107,11 @@ We use the same code in the first example with the new data to get estimators fo
 | MSE   | 18.6446   | 18.6446    |0.7033|0.3558|0.3555|0.3569|
 
 ## Reference
-Huber, P. J. (1973). Robust regression: asymptotics, conjectures and Monte Carlo. The Annals of Statistics 1 799-821.
+Huber, P. J. (1973). Robust regression: asymptotics, conjectures and Monte Carlo. *The Annals of Statistics* **1** 799-821.
 
-Rousseeuw, P. J. and Driessen, K. V. (1999). A fast algorithm for the minimum covariance determinant estimator. Technometrics 41 212-223.
+Rousseeuw, P. J. and Driessen, K. V. (1999). A fast algorithm for the minimum covariance determinant estimator. *Technometrics* **41** 212-223.
 
-Rousseeuw, P. J. (1984). Least median of squares regression. Journal of the American Statistical Association 79 871-880.
+Rousseeuw, P. J. (1984). Least median of squares regression. *Journal of the American Statistical Association* **79** 871-880.
 
-Sun, Q., Zhou, W.-X. and Fan, J. (2020). Adaptive Huber regression. Journal of the American Statistical Association 115 254-265.
+Sun, Q., Zhou, W.-X. and Fan, J. (2020). Adaptive Huber regression. *Journal of the American Statistical Association* **115** 254-265.
 
